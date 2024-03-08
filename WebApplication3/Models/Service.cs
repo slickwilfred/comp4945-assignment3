@@ -2,15 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+
 
 namespace WebApplication3.Models
 {
     public class Service
     {
-        public int ID { get; set; }
-        public string ServiceName { get; set; }
-        public virtual ICollection<Customer> Customers { get; set; } = new HashSet<Customer>();
-        public int EmployeeID { get; set; }
-        public virtual Employee Employee { get; set; }
+        public Service()
+        {
+            this.Customers = new HashSet<Customer>();
+            this.Employees = new HashSet<Employee>();
+
+        }
+
+        [Key]
+        public string Name { get; set; }
+        public virtual ICollection<Customer> Customers { get; set; }
+        public virtual ICollection <Employee> Employees { get; set; }
+       
     }
+
+
+    // [Key] used to set a key when not using Id keyword
 }
