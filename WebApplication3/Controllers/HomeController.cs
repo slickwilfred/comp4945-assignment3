@@ -26,5 +26,20 @@ namespace WebApplication3.Controllers
 
             return View();
         }
+
+        public ActionResult Customers()
+        {
+            // Ideally, you would fetch your customers from a database
+            // For demonstration, we'll return a view directly
+            return View();
+        }
+
+        public ActionResult Services()
+        {
+            // Similarly, fetch services from a database if applicable
+            // For now, we return a view directly
+            return View();
+        }
     }
 }
+
