@@ -7,7 +7,7 @@ namespace WebApplication3.Models
 {
     public class Employee : Person
     {
-        public virtual Service Service { get; set; }
+        public virtual ICollection<Service> Services { get; set; }
 
     }
 }
