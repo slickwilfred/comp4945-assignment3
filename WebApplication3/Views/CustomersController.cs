@@ -16,11 +16,13 @@ namespace WebApplication3.Views
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Customers
+        // GET: Customers
         public async Task<ActionResult> Index()
         {
-            var people = db.People.Include(c => c.Address).Include(c => c.Name);
-            return View(await people.ToListAsync());
+            var customers = await db.People.OfType<Customer>().ToListAsync();
+            return View(customers);
         }
+
 
         // GET: Customers/Details/5
         public async Task<ActionResult> Details(int? id)
